@@ -1,14 +1,29 @@
 namespace SeaBattle.Application;
 
+/// <summary>Třída obsahující vše potřebné ke hře</summary>
 public class Game
 {
+    /// <summary>Identifikace hry pro vyhledávání</summary>
     public Guid Id { get; } = Guid.NewGuid();
 
-    public GameState State { get; internal set; }
+    /// <summary>Aktuální stav této hry</summary>
+    public GameState State { get; internal set; } = GameState.FirstPlayerMove;
 
-    public Game(string firstPlayerName, string secondPlayerName, int mapSize)
+    /// <summary>První hráč</summary>
+    internal Player FirstPlayer { get; }
+
+    /// <summary>Druhý hráč</summary>
+    internal Player SecondPlayer { get; }
+
+    /// <summary>Hráč, který je právě na tahu</summary>
+    internal Player CurrentPlayer { get; set; }
+
+    internal Game(string firstPlayerName, string secondPlayerName, int mapSize)
     {
-
+        FirstPlayer = new(firstPlayerName, mapSize);
+        SecondPlayer = new(secondPlayerName, mapSize) { Opponent = FirstPlayer };
+        FirstPlayer.Opponent = SecondPlayer;
+        CurrentPlayer = FirstPlayer;
     }
 
 }
