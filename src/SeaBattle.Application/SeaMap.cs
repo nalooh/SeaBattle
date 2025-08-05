@@ -17,9 +17,12 @@ internal class SeaMap
     internal int Height
         => fields.GetLength(1);
 
+    /// <summary>Počet nepotopených lodí</summary>
     internal int WarshipsLeft
         => warships.Count(warship => !warship.IsSunken);
 
+    /// <summary>Vytvoří prázdnou mapu</summary>
+    /// <param name="mapSize">Velikost hrací plochy</param>
     internal SeaMap(int mapSize)
     {
         fields = new SeaMapField[mapSize, mapSize];

@@ -13,6 +13,8 @@ internal class Warship
     internal bool IsSunken
         => Health == 0;
 
+    /// <summary>Vytvoří novou loď k umístění na hrací plochu</summary>
+    /// <param name="partsRelativePositions">Pozice jednotlivých částí lodi relativně k lodi</param>
     internal Warship(params Position[] partsRelativePositions)
     {
         Parts = partsRelativePositions
