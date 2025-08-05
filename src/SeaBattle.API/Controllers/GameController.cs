@@ -12,7 +12,7 @@ public class GameController(World world) : ControllerBase
     public IActionResult CreateGame(CreateGameModel model)
     {
         Game game = world.CreateGame(model.FirstPlayerName, model.SecondPlayerName, model.MapSize);
-        return Ok(game.Id);
+        return Ok(new GameViewModel(game.Id, game.State.ToString()));
     }
 
 }
