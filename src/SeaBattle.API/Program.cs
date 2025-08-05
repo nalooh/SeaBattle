@@ -6,7 +6,6 @@ using SeaBattle.Application;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
-builder.Services.AddControllers();
 
 builder.Services.AddSingleton<World>();
 
@@ -34,7 +33,5 @@ app.MapPost("api/games/{id:guid}/moves", Results<Ok<FireResultModel>, NotFound> 
     FireResult result = game.Fire(new Position(model.X, model.Y));
     return TypedResults.Ok(new FireResultModel(result.ToString(), game.State.ToString(), game.CurrentPlayerName));
 });
-
-app.MapControllers();
 
 app.Run();
