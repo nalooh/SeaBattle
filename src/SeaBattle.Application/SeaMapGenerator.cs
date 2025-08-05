@@ -24,10 +24,17 @@ internal static class SeaMapGenerator
 
         foreach (Warship warship in warships)
         {
+            // Náhodná rotace
+            if (rnd.Next(1) == 1)
+            {
+                warship.RotateWarship();
+            }
+
+            // Náhodné umístění
             Position[] validPositions = GetValidPositionsForWarship(newMap, warship);
             if (validPositions.Length == 0)
             {
-                throw new Exception("Nepodařilo se umístit všechny loďe na hrací plochu.");
+                throw new Exception("Nepodařilo se umístit všechny lodě na hrací plochu.");
             }
             int selectedPosition = rnd.Next(validPositions.Length);
             newMap.AddWarship(warship, validPositions[selectedPosition]);
