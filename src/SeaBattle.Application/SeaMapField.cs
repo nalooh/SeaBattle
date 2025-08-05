@@ -9,10 +9,23 @@ internal class SeaMapField
     /// <summary>Pozice pole na hrací ploše</summary>
     private readonly Position position;
 
+    /// <summary>Odkaz na loď</summary>
+    private WarshipPart? WarshipPart { get; set; }
+
+    /// <summary>Informace o tom, jestli již bylo pole objeveno</summary>
+    public bool IsRevealed { get; set; }
+
+    /// <summary>Informac o tom, jestli pole obsahuje loď</summary>
+    public bool ContainsShip
+        => WarshipPart != null;
+
     internal SeaMapField(SeaMap map, Position position)
     {
         this.map = map;
         this.position = position;
     }
+
+    public override string ToString()
+        => $"({position.X},{position.Y}):{(ContainsShip ? "ship" : "water" )}";
 
 }
