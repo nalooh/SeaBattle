@@ -7,9 +7,7 @@ public enum GameState
     FirstPlayerMove,
     /// <summary>Na tahu je druhý hráč</summary>
     SecondPlayerMove,
-    /// <summary>První hráč vyhrál</summary>
-    FirstPlayerWon,
-    /// <summary>Druhý hráč vyhrál</summary>
-    SecondPlayerWon,
+    /// <summary>Hra skončia</summary>
+    Over,
 
 }

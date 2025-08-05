@@ -17,6 +17,9 @@ internal class SeaMap
     internal int Height
         => fields.GetLength(1);
 
+    internal int WarshipsLeft
+        => warships.Count(warship => !warship.IsSunken);
+
     internal SeaMap(int mapSize)
     {
         fields = new SeaMapField[mapSize, mapSize];

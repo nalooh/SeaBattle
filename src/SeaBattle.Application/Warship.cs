@@ -5,6 +5,14 @@ internal class Warship
     /// <summary>Jednotlivá pole lodě</summary>
     internal WarshipPart[] Parts { get; private set; }
 
+    /// <summary>Počet nezasažených částí lodi</summary>
+    internal int Health
+        => Parts.Count(part => !part.IsHit);
+
+    /// <summary>Je loď potopená</summary>
+    internal bool IsSunken
+        => Health == 0;
+
     internal Warship(params Position[] partsRelativePositions)
     {
         Parts = partsRelativePositions

@@ -12,6 +12,8 @@ internal class WarshipPart
     /// <summary>Pole, na které je část lodi umístěna</summary>
     internal SeaMapField? Field { get; set; } = null;
 
+    internal bool IsHit { get; set; } = false;
+
     internal WarshipPart(Warship warship, Position relativePosition)
     {
         Warship = warship;
