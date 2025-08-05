@@ -10,7 +10,7 @@ internal class SeaMapField
     private readonly Position position;
 
     /// <summary>Odkaz na loď</summary>
-    private WarshipPart? WarshipPart { get; set; }
+    internal WarshipPart? WarshipPart { get; set; }
 
     /// <summary>Informace o tom, jestli již bylo pole objeveno</summary>
     public bool IsRevealed { get; set; }

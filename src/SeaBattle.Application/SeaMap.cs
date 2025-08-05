@@ -36,7 +36,7 @@ internal class SeaMap
 
     /// <summary>Ověří, jestli se daná pozice nachází na hrací ploše</summary>
     internal bool IsValidPosition(Position position)
-        => position.X >= 0 && position.Y >= 0 && Width < position.X && Height < position.Y;
+        => position.X >= 0 && position.Y >= 0 && position.X < Width && position.Y < Height;
 
     /// <summary>Vrátí pole na hrací ploše, pokud existuje</summary>
     /// <param name="position">Pozice na hrací ploše</param>
@@ -53,6 +53,22 @@ internal class SeaMap
         {
             seaMapField = null;
             return false;
+        }
+    }
+
+    /// <summary>Pokud je to možné, přídá loď na hrací plochu</summary>
+    /// <param name="warship">Umisťovaná loď</param>
+    /// <param name="position">Pozice pro umístění lodi</param>
+    internal void AddWarship(Warship warship, Position position)
+    {
+        if (IsValidPositionForWarship(warship, position))
+        {
+            foreach (WarshipPart part in warship.Parts)
+            {
+                Position partPosition = position + part.RelativePosition;
+                this[partPosition].WarshipPart = part;
+            }
+            warships.Add(warship);
         }
     }
 

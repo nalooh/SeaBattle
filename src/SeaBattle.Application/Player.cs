@@ -15,7 +15,7 @@ internal class Player
     public Player(string name, int mapSize)
     {
         Name = name;
-        Map = new(mapSize);
+        Map = SeaMapGenerator.Generate(mapSize);
     }
 
 }
