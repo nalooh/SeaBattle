@@ -25,6 +25,7 @@ internal class SeaMapField
         this.position = position;
     }
 
+    /// <summary>Označí pole jako objevené</summary>
     internal void Reveal()
     {
         IsRevealed = true;

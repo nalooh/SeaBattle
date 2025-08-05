@@ -24,6 +24,10 @@ public class Game
     public string CurrentPlayerName
         => CurrentPlayer.Name;
 
+    /// <summary>Vytvoří novou hru</summary>
+    /// <param name="firstPlayerName">Jméno prvního hráče</param>
+    /// <param name="secondPlayerName">Jméno druhého hráče</param>
+    /// <param name="mapSize">Velikost hracího pole</param>
     internal Game(string firstPlayerName, string secondPlayerName, int mapSize)
     {
         FirstPlayer = new(firstPlayerName, mapSize);
