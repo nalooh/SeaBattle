@@ -13,7 +13,7 @@ internal class SeaMapField
     internal WarshipPart? WarshipPart { get; set; }
 
     /// <summary>Informace o tom, jestli již bylo pole objeveno</summary>
-    public bool IsRevealed { get; set; }
+    public bool IsRevealed { get; private set; }
 
     /// <summary>Informac o tom, jestli pole obsahuje loď</summary>
     public bool ContainsShip
@@ -25,7 +25,12 @@ internal class SeaMapField
         this.position = position;
     }
 
+    internal void Reveal()
+    {
+        IsRevealed = true;
+    }
+
     public override string ToString()
-        => $"({position.X},{position.Y}):{(ContainsShip ? "ship" : "water" )}";
+        => $"({position.X},{position.Y}):{(ContainsShip ? "ship" : "water")}";
 
 }

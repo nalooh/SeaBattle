@@ -49,7 +49,7 @@ public class Game
             throw new Exception("Palba na již objevené pole");
         }
 
-        field.IsRevealed = true;
+        field.Reveal();
         if (field.ContainsShip)
         {
             field.WarshipPart!.IsHit = true;
