@@ -25,7 +25,7 @@ internal static class SeaMapGenerator
         foreach (Warship warship in warships)
         {
             // Náhodná rotace
-            if (rnd.Next(1) == 1)
+            if (rnd.Next(2) == 1)
             {
                 warship.RotateWarship();
             }
