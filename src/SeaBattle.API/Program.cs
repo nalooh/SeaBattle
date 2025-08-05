@@ -1,7 +1,11 @@
+using SeaBattle.Application;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
+
+builder.Services.AddSingleton<World>();
 
 var app = builder.Build();
 
