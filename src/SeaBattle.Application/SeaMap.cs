@@ -67,6 +67,7 @@ internal class SeaMap
             {
                 Position partPosition = position + part.RelativePosition;
                 this[partPosition].WarshipPart = part;
+                part.Field = this[partPosition];
             }
             warships.Add(warship);
         }
