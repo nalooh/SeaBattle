@@ -21,7 +21,7 @@ public class World
         {
             throw new Exception($"Velikost hrací plochy musí být mezi {MapMinSize} a {MapMaxSize}.");
         }
-        Game newGame = new(firstPlayerName, secondPlayerName, mapSize);
+        Game newGame = new(firstPlayerName, secondPlayerName, SeaMapGenerator.Generate(mapSize), SeaMapGenerator.Generate(mapSize));
         games.Add(newGame.Id, newGame);
         return newGame;
     }

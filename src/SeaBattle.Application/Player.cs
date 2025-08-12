@@ -12,10 +12,10 @@ internal class Player
     /// <summary>Protihráč</summary>
     internal Player Opponent { get; set; }
 
-    public Player(string name, int mapSize)
+    public Player(string name, SeaMap map)
     {
         Name = name;
-        Map = SeaMapGenerator.Generate(mapSize);
+        Map = map;
     }
 
 }

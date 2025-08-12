@@ -28,10 +28,10 @@ public class Game
     /// <param name="firstPlayerName">Jméno prvního hráče</param>
     /// <param name="secondPlayerName">Jméno druhého hráče</param>
     /// <param name="mapSize">Velikost hracího pole</param>
-    internal Game(string firstPlayerName, string secondPlayerName, int mapSize)
+    internal Game(string firstPlayerName, string secondPlayerName, SeaMap firstPlayerMap, SeaMap secondPlayerMap)
     {
-        FirstPlayer = new(firstPlayerName, mapSize);
-        SecondPlayer = new(secondPlayerName, mapSize) { Opponent = FirstPlayer };
+        FirstPlayer = new(firstPlayerName, firstPlayerMap);
+        SecondPlayer = new(secondPlayerName, secondPlayerMap) { Opponent = FirstPlayer };
         FirstPlayer.Opponent = SecondPlayer;
         CurrentPlayer = FirstPlayer;
     }
