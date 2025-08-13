@@ -1,0 +1,8 @@
+services:
+  api:
+    image: seabattle/api
+    build:
+      context: ./src
+      dockerfile: Dockerfile
+    ports:
+      - 8000:80
